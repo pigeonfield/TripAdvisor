@@ -1,7 +1,13 @@
 class DestinationsController < ApplicationController
+    before_action :find_destination, only: [:show, :edit, :destroy, :update]
+    
     
     def index
-        
+        @destinations = Destination.all
+    end    
+    
+    def show
+
     end    
     
     def new
@@ -22,5 +28,9 @@ class DestinationsController < ApplicationController
     
     def destination_params
        params.require(:destination).permit(:name, :country, :description) 
+    end    
+    
+    def find_destination
+        @destination = Destination.find(params[:id])        
     end    
 end
