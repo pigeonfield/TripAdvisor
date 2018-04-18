@@ -2,9 +2,11 @@
 
 <% @destinations.each do |destination| %>
 
-    <h1><%= destination.name %></h1>
+    <h1><%= link_to destination.name, destination_path(destination) %></h1>
     <h4><%= destination.country %></h4>
 
 <% end %> 
+
+<%= link_to "Add New Advice!", new_destination_path %>
 
 
