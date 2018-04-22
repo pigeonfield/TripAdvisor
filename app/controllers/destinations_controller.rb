@@ -10,11 +10,11 @@ class DestinationsController < ApplicationController
     end    
     
     def new
-        @destination = Destination.new
+        @destination = current_redactor.destinations.build
     end
     
     def create
-        @destination = Destination.new(destination_params)
+        @destination = current_redactor.destinations.build(destination_params)
         
         if @destination.save
             redirect_to root_path
