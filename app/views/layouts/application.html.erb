@@ -27,6 +27,12 @@
               <% end %>
         </ul>
   
+        <ul class="nav navbar-nav">
+          <% if redactor_signed_in? %>
+            <li><%= link_to "Add New Advice", new_destination_path %></li>
+          <% end %>
+        </ul>
+  
       </div>
 
     </nav> 
