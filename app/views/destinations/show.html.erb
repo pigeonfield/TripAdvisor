@@ -1,3 +1,7 @@
 <h1><%= @destination.name %></h1>
 <h2><%= @destination.country %></h2>
 <p><%= @destination.description %></p>
+
+<%= link_to "Edit", edit_destination_path(@destination) %>
+<%= link_to "Delete", destination_path(@destination), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "Go Back", root_path %>
