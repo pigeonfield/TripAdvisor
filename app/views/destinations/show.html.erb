@@ -2,6 +2,12 @@
 <h4><%= @destination.country %></h4>
 <p><%= @destination.description %></p>
 
-<%= link_to "Edit", edit_destination_path(@destination) %>
-<%= link_to "Delete", destination_path(@destination), method: :delete, data: { confirm: "Are you sure?" } %>
+
+<% if redactor_signed_in? %>
+    <% if @destination.redactor_id == current_redactor.id %>
+        <%= link_to "Edit", edit_destination_path(@destination) %>
+        <%= link_to "Delete", destination_path(@destination), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>    
+<% end %>                
+                
 <%= link_to "Go Back", root_path %>
