@@ -11,6 +11,7 @@ class DestinationsController < ApplicationController
     
     def new
         @destination = current_redactor.destinations.build
+        @categories = Category.all.map{ |c| [c.name, c.id]}
     end
     
     def create
@@ -24,6 +25,7 @@ class DestinationsController < ApplicationController
     end
     
     def edit
+        @categories = Category.all.map{ |c| [c.name, c.id]}
     end
     
     def update

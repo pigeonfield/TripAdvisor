@@ -1,4 +1,5 @@
 <%= simple_form_for @destination do |f| %>
+    <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a category") %>
     <%= f.input :name, label: "Place Name" %>
     <%= f.input :country %>
     <%= f.input :description %>  
