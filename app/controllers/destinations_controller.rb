@@ -16,7 +16,8 @@ class DestinationsController < ApplicationController
     
     def create
         @destination = current_redactor.destinations.build(destination_params)
-        
+        @destination.category_id = params[:category_id]
+                
         if @destination.save
             redirect_to root_path
         else
@@ -29,6 +30,7 @@ class DestinationsController < ApplicationController
     end
     
     def update
+        @destination.category_id = params[:category_id]
         if @destination.update(destination_params)
             redirect_to destination_path(@destination)
         else
@@ -46,7 +48,7 @@ class DestinationsController < ApplicationController
     private 
     
         def destination_params
-           params.require(:destination).permit(:name, :country, :description) 
+           params.require(:destination).permit(:name, :country, :description, :category_id) 
         end    
         
         def find_destination
