@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+Paperclip.options.merge!(:command_path => "/home/linuxbrew/.linuxbrew/bin/"
   # Code is not reloaded between requests.
   config.cache_classes = true
 
