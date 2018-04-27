@@ -1,11 +1,26 @@
+<h3 class="current category"><%= params[:category] %></h3>
 
-<% @destinations.each do |destination| %>
 
-    <h1><%= link_to destination.name, destination_path(destination) %></h1>
-    <h4><%= destination.country %></h4>
-
-<% end %> 
-
+    <% if @destinations.count == 0 %>
+        <h3>Ups! There are no Trip Advices in this category yet.</h3>
+        
+            <% if redactor_signed_in? %>
+                <p><%= link_to "Add New Advice!", new_destination_path %> to change this!</p>
+            <% else %>
+                <p><%= link_to "Log In", new_destination_path %> or <%= link_to "Sign Up", new_redactor_registration_path %> to add the new one!</p>
+                 <p></p>
+          <% end %>
+        
+        
+        
+    <% else %>
+        <% @destinations.each do |destination| %>
+        
+            <h1><%= link_to destination.name, destination_path(destination) %></h1>
+            <h4><%= destination.country %></h4>
+        
+        <% end %> 
+    <% end %>
 
 
 

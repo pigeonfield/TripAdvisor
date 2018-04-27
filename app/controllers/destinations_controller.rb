@@ -3,7 +3,12 @@ class DestinationsController < ApplicationController
     
     
     def index
-        @destinations = Destination.all
+        if params[:category].blank?
+            @destinations = Destination.all.order("created_at DESC")
+        else
+           @category_id = Category.find_by(name: params[:category]).id
+           @destinations = Destination.where(:category_id => @category_id).order("created_at DESC")
+        end    
     end    
     
     def show
