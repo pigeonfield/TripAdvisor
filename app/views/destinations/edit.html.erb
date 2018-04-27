@@ -2,6 +2,7 @@
 
 <%= simple_form_for @destination, :html => { :multipart => true } do |f| %>
     <%= f.select :category_id, @categories %>
+    <%= f.file_field :destination_img %>
     <%= f.input :name, label: "Place Name" %>
     <%= f.input :country %>
     <%= f.input :description %>  
