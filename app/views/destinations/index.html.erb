@@ -12,18 +12,26 @@
           <% end %>
         
         
-        
     <% else %>
+    
+    <div class="row">
         <% @destinations.each do |destination| %>
         
+            <div class="col-md-3">        
             <a href="/destinations/<%= destination.id %>">
-                <%= image_tag destination.destination_img.url(:destination_index) %>    
+                <%= image_tag destination.destination_img.url(:destination_index), class: "destination-index" %>
+                <h4><%= link_to destination.name, destination_path(destination), class: "destination-index" %></h4>            
+                
             </a>
+            </div>
             
-            <h4><%= link_to destination.name, destination_path(destination) %></h4>
+
 
 
         <% end %> 
+        
+    </div>    
+    
     <% end %>
 
 
