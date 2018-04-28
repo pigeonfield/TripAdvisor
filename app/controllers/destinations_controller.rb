@@ -55,7 +55,7 @@ class DestinationsController < ApplicationController
     private 
     
         def destination_params
-           params.require(:destination).permit(:name, :country, :description, :category_id) 
+           params.require(:destination).permit(:name, :country, :description, :category_id, :destination_img) 
         end    
         
         def find_destination

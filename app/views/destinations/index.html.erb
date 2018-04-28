@@ -16,9 +16,13 @@
     <% else %>
         <% @destinations.each do |destination| %>
         
-            <h1><%= link_to destination.name, destination_path(destination) %></h1>
-            <h4><%= destination.country %></h4>
-        
+            <a href="/destinations/<%= destination.id %>">
+                <%= image_tag destination.destination_img.url(:destination_index) %>    
+            </a>
+            
+            <h4><%= link_to destination.name, destination_path(destination) %></h4>
+
+
         <% end %> 
     <% end %>
 
