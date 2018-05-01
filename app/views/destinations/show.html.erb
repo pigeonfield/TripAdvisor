@@ -1,16 +1,25 @@
-<%= image_tag @destination.destination_img.url(:destination_show), class: "destination-show" %>
+<div class="row">
+    <div class="col-md-4">
 
-<h1><%= @destination.name %></h1>
-<h4><%= @destination.country %></h4>
-<h5>Category: <%= @destination.category.name %></h5>
-<p><%= @destination.description %></p>
+        <h1><%= @destination.name %></h1>
+        <%= image_tag @destination.destination_img.url(:destination_show), class: "destination-show" %>
+        <h4><%= @destination.country %></h4>
+        <h5>Category: <%= @destination.category.name %></h5>
+    
+    </div>
+    
+    <div class="col-md-8">
+        <p><%= @destination.description %></p>
 
-
-<% if redactor_signed_in? %>
-    <% if @destination.redactor_id == current_redactor.id %>
-        <%= link_to "Edit", edit_destination_path(@destination) %>
-        <%= link_to "Delete", destination_path(@destination), method: :delete, data: { confirm: "Are you sure?" } %>
-    <% end %>    
-<% end %>                
-                
-<%= link_to "Go Back", root_path %>
+        <% if redactor_signed_in? %>
+            <% if @destination.redactor_id == current_redactor.id %>
+                <%= link_to "Edit", edit_destination_path(@destination) %>
+                <%= link_to "Delete", destination_path(@destination), method: :delete, data: { confirm: "Are you sure?" } %>
+            <% end %>    
+        <% end %>                
+                    
+        <%= link_to "Go Back", root_path %>
+    
+    </div>
+    
+</div>    
