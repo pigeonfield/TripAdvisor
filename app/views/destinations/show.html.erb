@@ -6,7 +6,7 @@
         <h4><%= @destination.country %></h4>
         <h5>Category: <%= @destination.category.name %></h5>
     
-    </div>
+    </div> 
     
     <div class="col-md-8">
         <h1><%= @destination.name %></h1>
@@ -24,3 +24,14 @@
     </div>
     
 </div>    
+
+
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            <%= link_to "Add Rating", new_destination_rating_path(@destination) %>
+        </div>
+        
+    </div>
+</div>            
+        
