@@ -22,7 +22,7 @@ class RatingsController < ApplicationController
     private
     
     def rating_params
-       params.require(:review).permit(:rating, :comment)
+       params.require(:rating).permit(:rating, :comment)
     end    
     
     def find_destination

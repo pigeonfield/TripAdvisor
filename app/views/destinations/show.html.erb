@@ -28,6 +28,10 @@
 
 <div class="row">
     <div class="col-md-4">
+        
+        <h1>Reviews</h1>
+            <%= render @destination.ratings %>
+            
         <div>
             <%= link_to "Add Rating", new_destination_rating_path(@destination) %>
         </div>
