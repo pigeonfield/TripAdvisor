@@ -33,7 +33,9 @@
             <%= render @destination.ratings %>
             
         <div>
+            <% if redactor_signed_in? %>
             <%= link_to "Add Rating", new_destination_rating_path(@destination) %>
+            <% end %>
         </div>
         
     </div>

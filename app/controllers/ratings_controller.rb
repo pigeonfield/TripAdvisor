@@ -1,6 +1,6 @@
 class RatingsController < ApplicationController
     before_action :find_destination
-    
+    before_action :find_rating, only: [:edit, :update, :destroy]    
     
     def new
         @rating = Rating.new
@@ -19,6 +19,24 @@ class RatingsController < ApplicationController
         end  
     end
     
+    def edit
+
+    end    
+    
+    def update
+
+        if @rating.update(rating_params)
+            redirect_to destination_path(@destination)
+        else 
+            render 'edit'
+        end    
+    end
+    
+    def destroy
+        @rating.destroy
+        redirect_to destination_path(@destination)
+    end      
+    
     private
     
     def rating_params
@@ -27,5 +45,9 @@ class RatingsController < ApplicationController
     
     def find_destination
         @destination = Destination.find(params[:destination_id])        
-    end    
+    end   
+    
+    def find_rating
+        @rating = Rating.find(params[:id])
+    end
 end
