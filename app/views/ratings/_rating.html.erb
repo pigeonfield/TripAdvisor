@@ -1,4 +1,8 @@
 <p><%= rating.rating %></p>
 <p><%= rating.comment %></p>
-<%= link_to "Edit", edit_destination_rating_path(rating.destination, rating) %>
-<%= link_to "Delete", destination_rating_path(rating.destination, rating), method: :delete, data: { confirm: "Are you sure?" } %>
+<% if redactor_signed_in? %>
+    <% if rating.redactor_id == current_redactor.id %>
+        <%= link_to "Edit", edit_destination_rating_path(rating.destination, rating) %>
+        <%= link_to "Delete", destination_rating_path(rating.destination, rating), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% end %>
+<% end %>    

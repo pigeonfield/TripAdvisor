@@ -31,10 +31,12 @@
         
         <h1>Reviews</h1>
             <%= render @destination.ratings %>
-            
+            <br>
         <div>
             <% if redactor_signed_in? %>
-            <%= link_to "Add Rating", new_destination_rating_path(@destination) %>
+                <%= link_to "Add Rating", new_destination_rating_path(@destination) %>
+            <% else %>
+                <p> You should <%=  link_to "Log In", new_redactor_session_path %> or <%= link_to "Sign Up", new_redactor_registration_path %> to have ability to add new rating! </p>
             <% end %>
         </div>
         
