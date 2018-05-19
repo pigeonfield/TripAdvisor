@@ -1,4 +1,5 @@
-<p><%= rating.rating %></p>
+<div class="rating-rating" data-score="<%= rating.rating %>"></div>
+
 <p><%= rating.comment %></p>
 <% if redactor_signed_in? %>
     <% if rating.redactor_id == current_redactor.id %>
