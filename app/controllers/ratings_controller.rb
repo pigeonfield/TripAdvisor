@@ -1,6 +1,7 @@
 class RatingsController < ApplicationController
     before_action :find_destination
     before_action :find_rating, only: [:edit, :update, :destroy]    
+    before_action :authenticate_redactor!, only: [:new, :edit]
     
     def new
         @rating = Rating.new
