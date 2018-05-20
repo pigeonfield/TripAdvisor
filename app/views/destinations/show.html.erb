@@ -29,9 +29,17 @@
 <div class="row">
     <div class="col-md-4">
         
-        <h1>Reviews</h1>
-            <%= render @destination.ratings %>
-            <br>
+        
+        
+        <h3>Average Redactor's Rating</h3>    
+        <div class="average-rating-rating" data-score=<%= @average_rating %>>
+            
+        </div>
+        
+        <h3>Reviews</h3>
+        <%= render @destination.ratings %>
+            
+        <br>
         <div>
             <% if redactor_signed_in? %>
                 <%= link_to "Add Rating", new_destination_rating_path(@destination) %>
@@ -51,5 +59,15 @@
 			return $(this).attr('data-score');
 		},
 		path: '/assets/'
+	});
+</script>
+
+<script>
+	$('.average-rating-rating').raty({
+		readOnly: true,
+		path: '/assets/',
+		score: function() {
+			return $(this).attr('data-score')
+		}
 	});
 </script>

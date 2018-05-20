@@ -12,8 +12,11 @@ class DestinationsController < ApplicationController
     end    
     
     def show
- 
-
+        if @destination.ratings.blank?
+            @average_rating = 0
+        else
+            @average_rating = @destination.ratings.average(:rating).round(2)
+        end    
     end    
     
     def new
