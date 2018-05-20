@@ -1,6 +1,6 @@
 class DestinationsController < ApplicationController
     before_action :find_destination, only: [:show, :edit, :destroy, :update]
-    
+    before_action :authenticate_redactor!, only: [:new, :edit]
     
     def index
         if params[:category].blank?
