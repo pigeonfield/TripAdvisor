@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple App inspired by TripAdvisor written in Ruby on Rails. 
+It contains photos and short descriptions, so it helps to organize trip destinations. And for sign-in users - add comments and ratings. 
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Some of gems I used: 
+paperclip - for uploading images
+devise - user authentication
+simple-form - all of forms
